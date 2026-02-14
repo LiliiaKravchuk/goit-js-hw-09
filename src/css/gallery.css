@@ -11,11 +11,12 @@
 }
 
 .gallery-item {}
-.gallery-item::after {
-content: '';
-
-}
 .gallery-link {
 }
 .gallery-image {
 }
+
+.sl-wrapper {
+  background: rgba(46, 47, 66, 0.8);
+}
+

@@ -101,19 +101,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   adding_gallery(images);
 
-  // const instancen = new SimpleLightbox('.gallery a', {
-  //   nav: true,
-  //   captions: true,
-  //   captionsType: 'text',
-  //   captionsData: 'alt',
-  //   captionPosition: 'bottom',
-  //   close: true,
-  //   showCounter: true,
-  //   animationSpeed: 250,
-  //   docClose: true,
-  //   className: 'simple-lightbox',
-  //   fadeSpeed: 250
+  const instancen = new SimpleLightbox('.gallery a', {
+    nav: true,
+    captions: true,
+    captionsType: 'text',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+    close: true,
+    showCounter: true,
+    animationSpeed: 250,
+    docClose: true,
+    className: 'simple-lightbox',
+ 
 
-  // })
-  // instancen.open();
+  })
+  instancen.open();
+  setTimeout(() => instancen.options.fadeSpeed, 250)
 });
