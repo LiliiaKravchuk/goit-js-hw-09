@@ -1,0 +1,21 @@
+.gallery {
+  display: flex;
+  width: calc(100% - 24px * 2);
+  flex-wrap: wrap;
+  list-style-type: none;
+
+  gap: 24px;
+
+  align-content: center;
+  justify-content: center;
+}
+
+.gallery-item {}
+.gallery-item::after {
+content: '';
+
+}
+.gallery-link {
+}
+.gallery-image {
+}
