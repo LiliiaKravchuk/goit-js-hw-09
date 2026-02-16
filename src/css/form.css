@@ -1,0 +1,50 @@
+input:hover {
+  border: 1px solid #000;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+}
+.btnsb {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 95px;
+  height: 40px;
+  background: #4e75ff;
+}
+
+.btnsb:hover {
+  background: #6c8cff;
+}
+
+.feedback-form {
+  padding: 24px;
+}
+
+.feedback-form,
+.feedback-form > label {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form > label > input
+ {
+  width: 360px;
+  height: 40px;
+}
+
+.feedback-form > label > textarea
+{
+width: 360px;
+height: 80px;
+}
+
+.feedback-form > label > input::placeholder:active {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  padding: 8px 16px;
+}
