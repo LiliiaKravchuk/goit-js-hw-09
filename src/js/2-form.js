@@ -1,43 +1,57 @@
-const formData = {
-  email: '',
-  message: '',
-};
-document.addEventListener('DOMContentLoaded', () => {
-  function adding_structure(formData) {
-    const formData = document.querySelector('.feedback-form');
+const formn = document.querySelector('.feedback-form');
 
-    const message = formData.elements.message;
-    const email = formData.elements.email;
+const messagen = document.querySelector('textarea[name="message"]');
+const emailmn = document.querySelector('input[name="email"]');
 
-    const feedbackFormState = '';
+formData.addEventListener('input', () => {
+  const feedbackFormState = {
+    message: messagen.value,
+    email: emailmn.value,
+  };
 
-    message.value = localStorage.getItem(feedbackFormState) ?? '';
-    email.value = localStorage.getItem(feedbackFormState) ?? '';
+  localStorage.setItem(
+    'feedback-form-state',
+    JSON.stringify(feedbackFormState)
+  );
+});
 
-    formData.addEventListener('input', event => {
-      localStorage.setItem(feedbackFormState, event.target.value);
-    });
+const st = localStorage.getItem('feedback-form-state');
 
-    formData.addEventListener('submit', event => {
-      event.preventDefault();
-      console.log(event.target.elements.message.value);
-      localStorage.removeItem(feedbackFormState);
-      formData.reset();
-    });
+if (st) {
+  const parsedo = JSON.parse(st);
+  messagen.value = parsedo.message;
+  emailmn.value = parsedo.emailmn;
+}
 
-    const inputpl = document.querySelectorAll('input');
+const inputpl = document.querySelectorAll('input');
 
-    inputpl.forEach(o => {
-      o.addEventListener('focus', event => {
-        // event.target.setAttribute("placeholder", "Type area");
-        event.target.placeholder = 'Type area';
-      });
+inputpl.forEach(o => {
+  o.addEventListener('focus', event => {
+    // event.target.setAttribute("placeholder", "Type area");
+    event.target.placeholder = 'Type area';
+  });
 
-      o.addEventListener('blur', event => {
-        // event.target.setAttribute("placeholder", "");
-        event.target.placeholder = '';
-      });
-    });
+  o.addEventListener('blur', event => {
+    // event.target.setAttribute("placeholder", "");
+    event.target.placeholder = '';
+  });
+});
+
+formn.addEventListener('submit', event => {
+  event.preventDefault();
+
+  if ( emailmn.value === '' || messagemn.value === '') {
+    return console.log('Please fill in all the fields!');
+  } else {
+    console.log(`email - ${emailmn.value}, message - ${messagemn.value}`);
   }
-  adding_structure(formData);
+
+  feedbackFormState = {
+    message: messagen.value,
+    email: emailmn.value,
+  };
+  console.log(messagen.value);
+  console.log(emailmn.value);
+  localStorage.removeItem(feedbackFormState);
+  formn.reset();
 });
